@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<th:block th:fragment="head-config">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}" href="../static/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap-theme.css}" href="../static/bootstrap/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" th:href="@{/css/master.css}" href="../static/css/master.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script  th:src="@{/bootstrap/js/bootstrap.js}" src="../static/bootstrap/js/jquery.js"></script>
+    <script src="/js/js.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2743255687076742",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-128583353-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128583353-1');
+    </script>
+</th:block>
+
+
+<nav th:fragment="navbar" id="Nav" class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img id="NavLogo" src="/images/SmallLogo.png" alt="" style="width: 100%;"/>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="nav-home "><a href="/">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li class="nav-leagues"><a href="/leagues">Leagues<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                <li class="dropdown">
+                    <a href="/live-channels" class="dropdown-toggle" data-toggle="dropdown">Live Channels <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li class="nav-sky-sports-1"><a href="/channel/1">Sky Sports Football</a></li>
+                        <li class="nav-bt-sport-1"><a href="/channel/2">BT Sport 1</a></li>
+                    </ul>
+                </li>
+                <li class="nav-results"><a href="/results">Results<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<nav th:fragment="admin-nav" class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<img src="/images/misc/logo.png" alt="" style="width: 100%;"/>-->
+            <h1 id="nav-logo">Clean Streams</h1>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="nav-home "><a href="/admin/streams">Streams<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li class="nav-leagues"><a href="/leagues">Leagues<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                <li class="dropdown">
+                    <a href="/live-channels" class="dropdown-toggle" data-toggle="dropdown">Live Channels <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li class="nav-sky-sports-1"><a href="/channel/1">Sky Sports Football</a></li>
+                        <li class="nav-sky-sports-2"><a href="/sky-sports-2">Sky Sports 2</a></li>
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    </ul>
+                </li>
+                <li class="nav-results"><a href="/results">Results<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div th:fragment="top-logo-lg">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="center-div">
+                    <img src="/images/400dpiLogo.png" alt="" style="height: 300px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<th:block th:each="game : ${games_list}">-->
+    <!--<div th:replace="fragments :: game-info-med">-->
+    <!--</div>-->
+<!--</th:block>-->
+
+<div th:fragment="game-info-med">
+    <th:block th:each="game : ${game_list}">
+        <div class="game-info-con row">
+            <a th:href="'/match/' + ${game.match_id}">
+                <div class="game-info col-md-4 col-sm-12 txt-center">
+                    <p th:text="${game.date}+' '+${game.time}"></p>
+                </div>
+                <div class="home-team-info col-md-4 col-sm-12 txt-center">
+                    <p th:text="${game.home_team_name}"></p>
+                </div>
+                <div class="away-team-info col-md-4 col-sm-12 txt-center">
+                    <p th:text="${game.away_team_name}"></p>
+                </div>
+            </a>
+        </div>
+    </th:block>
+</div>
+
+<div th:fragment="game-info-med-live">
+    <th:block th:each="game : ${live_game_list}">
+        <div class="game-info-con row">
+            <a th:href="'/match/' + ${game.match_id}">
+                <div class="col-md-1 col-sm-12 txt-center">
+                    <div><i class="fa fa-circle text-danger Blink"></i>&nbsp; LIVE </div>
+                </div>
+                <div class="home-team-info col-md-3 col-sm-12 txt-center">
+                    <p th:text="${game.home_team_name}"></p>
+                </div>
+                <div class="game-info col-md-4 col-sm-12 txt-center">
+                    <p th:text="${game.status}"></p>
+                </div>
+                <div class="away-team-info col-md-3 col-sm-12 txt-center">
+                    <p th:text="${game.away_team_name}"></p>
+                </div>
+            </a>
+        </div>
+    </th:block>
+</div>
+
+<div th:fragment="streams-list">
+    <h1 class="white-head">Streams List</h1>
+    <div th:if="${streams_list.empty}">
+        <h1 class="white-head">There are no streams available. Please check back 1 hour before the match.</h1>
+    </div>
+    <th:block th:each="stream : ${streams_list}">
+            <div class="row stream-row">
+                <a th:href="${stream.url}">
+                <div class="col-md-5 col-sm-12">
+                    <p th:text="${stream.name}"></p>
+                </div>
+                <div class="col-md-7 col-sm-12">
+                    <p th:text="${stream.url}"></p>
+                </div>
+                </a>
+            </div>
+        </th:block>
+
+</div>
+
+<div th:fragment="channel-code">
+    <div class="container-fluid">
+        <div class="container">
+            <th:block th:text="${channel_info.code}">
+
+            </th:block>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="admin-leagues">
+    <div class="container-fluid">
+        <div class="container">
+            <th:block th:each="league:${league_list}">
+                <div class="row admin-league">
+                    <div class="col-md-6">
+                        <h1 class="league-id" th:text="${league.league_id}"></h1>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 th:text="${league.league_name}"></h1>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="admin-games">
+    <div class="container-fluid">
+        <div class="container">
+            <th:block th:each="game:${game_list}">
+                <div class="row admin-game">
+                    <div class="col-md-6">
+                        <h1 class="game-id" th:text="${game.match_id}"></h1>
+                    </div>
+                    <div class="col-md-3">
+                        <h1 th:text="${game.home_team_name}"></h1>
+                    </div>
+                    <div class="col-md-3">
+                        <h1 th:text="${game.away_team_name}"></h1>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="success-msg">
+    <h1>Success</h1>
+</div>
+
+<div th:fragment="live-score">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row live-score-row">
+                <div class="col-md-6 txt-center">
+                    <h1 class="score-container" th:text="${match_info.home_team_score}"></h1>
+                </div>
+                <div class="col-md-6 txt-center">
+                    <h1 class="score-container" th:text="${match_info.away_team_score}"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="major-league-list">
+    <div class="container-fluid league-type-container">
+        <div class="container">
+            <div class="row txt-center white-head">
+                <h1>Major Leagues List</h1>
+            </div>
+            <div class="row">
+                <th:block th:each="l : ${major_league_list}">
+                    <a class="no-href" th:href="'/leagues/'+${l.league_id}">
+                        <div class="col-md-3 col-sm-6 league-container txt-center league-info">
+                            <h1 th:text="${l.league_name}"></h1>
+                        </div>
+                    </a>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="other-league-list">
+    <div class="container-fluid league-type-container">
+        <div class="container">
+            <div class="row txt-center white-head">
+                <h1>Minor Leagues List</h1>
+            </div>
+            <div class="row">
+                <th:block th:each="l : ${other_league_list}">
+                    <a class="no-href" th:href="'/leagues/'+${l.league_id}">
+                        <div class="col-md-3 col-sm-6 league-container txt-center league-info">
+                            <h1 th:text="${l.league_name}"></h1>
+                        </div>
+                    </a>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="cup-league-list">
+    <div class="container-fluid league-type-container">
+        <div class="container">
+            <div class="row txt-center white-head">
+                <h1> Cup Competitions List</h1>
+            </div>
+            <div class="row">
+                <th:block th:each="l : ${cup_league_list}">
+                    <a class="no-href" th:href="'/leagues/'+${l.league_id}">
+                        <div class="col-md-3 col-sm-6 league-container txt-center league-info">
+                            <h1 th:text="${l.league_name}"></h1>
+                        </div>
+                    </a>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="league-table">
+    <h1 class="white-head">League Table</h1>
+        <table id="leagueTable" class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Pos</th>
+                <th scope="col">Team</th>
+                <th scope="col">Played</th>
+                <th scope="col">W</th>
+                <th scope="col">D</th>
+                <th scope="col">L</th>
+                <th scope="col">F</th>
+                <th scope="col">A</th>
+                <th scope="col">Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="t : ${league_table}">
+                <tr>
+                    <th scope="row" th:text="${t.position}"></th>
+                    <td th:text="${t.team_name}"></td>
+                    <td th:text="${t.played}"></td>
+                    <td th:text="${t.win}"></td>
+                    <td th:text="${t.draw}"></td>
+                    <td th:text="${t.lose}"></td>
+                    <td th:text="${t.goals_for}"></td>
+                    <td th:text="${t.goals_against}"></td>
+                    <td th:text="${t.points}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+</div>
+
+<div th:fragment="league-specific-games" >
+    <div th:if="${!league_live_games_list.empty}">
+        <h1>Live Games</h1>
+        <th:block th:each="m:${league_live_games_list}">
+            <a th:href="'/match/'+${m.match_id}">
+                <div class="row match-info-small game-info-con txt-center">
+                    <div class="col-md-2">
+                        <td><div><i class="fa fa-circle text-danger Blink"></i>&nbsp; LIVE </div></td>
+                    </div>
+                    <div class="col-md-5">
+                        <p th:text="${m.home_team_name} +'  '+ ${m.home_team_score}"></p>
+                    </div>
+                    <div class="col-md-5">
+                        <p th:text="${m.away_team_score} +'  '+ ${m.away_team_name}"></p>
+                    </div>
+                </div>
+            </a>
+        </th:block>
+    </div>
+
+    <h1 class="white-head">Recent Matches</h1>
+    <th:block th:each="m:${league_recent_games_list}">
+        <a th:href="'/match/'+${m.match_id}">
+            <div class="row match-info-small game-info-con txt-center">
+                <div class="col-md-4">
+                    <p th:text="${m.home_team_name}"></p>
+                </div>
+                <div class="col-md-1">
+                    <p class="score-container" th:text="${m.home_team_score}"></p>
+                </div>
+                <div class="col-md-1">
+                    <p class="score-container" th:text="${m.away_team_score}"></p>
+                </div>
+                <div class="col-md-4">
+                    <p th:text="${m.away_team_name}"></p>
+                </div>
+                <div class="col-md-1">
+                    <p th:text="${m.status}"></p>
+                </div>
+            </div>
+        </a>
+    </th:block>
+</div>
+
+<div th:fragment="line-up">
+    <div id="lineUpContainer">
+        <div id="lineUpEmpty" th:if="${lineup_list.empty}">
+            <h1>There is no lineup data available yet!</h1>
+        </div>
+        <th:block th:if="${!lineup_list.empty}">
+
+        </th:block>
+    </div>
+</div>
+
+<div th:fragment="results">
+    <div class="row">
+        <h1 class="white-head">
+            Today's Results
+        </h1>
+    </div>
+    <th:block th:each="r:${results_list}">
+        <div class="row match-info-small game-info-con txt-center">
+            <a th:href="'/match/' + ${r.match_id}">
+                <div class="col-md-4">
+                    <p th:text="${r.home_team_name}"></p>
+                </div>
+                <div class="col-md-1">
+                    <p class="score-container" th:text="${r.home_team_score}"></p>
+                </div>
+                <div class="col-md-1">
+                    <p class="score-container" th:text="${r.away_team_score}"></p>
+                </div>
+                <div class="col-md-4">
+                    <p th:text="${r.away_team_name}"></p>
+                </div>
+                <div class="col-md-1">
+                    <p th:text="${r.status}"></p>
+                </div>
+            </a>
+        </div>
+    </th:block>
+</div>
+
+
+<div th:fragment="live-stream-code">
+    <div id="StreamPlayer" class="center-align" th:utext="${live_stream_code.code}">
+
+    </div>
+</div>
+
+
+</body>
+</html>

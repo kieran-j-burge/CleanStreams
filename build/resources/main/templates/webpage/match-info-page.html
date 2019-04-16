@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Match</title>
+    <th:block th:replace="fragments::head-config">
+
+    </th:block>
+</head>
+<body>
+
+<nav th:replace="fragments::navbar">
+
+</nav>
+<div class="main">
+
+    <div th:replace="fragments::top-logo-lg">
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="container main-bg">
+            <div class="row txt-center white-head" >
+                <h1 th:text="${match_info.league_name}"></h1>
+            </div>
+            <div class="row white-head">
+                <div class="col-md-4 col-sm-12 txt-center">
+                    <h1 th:text="${match_info.home_team_name}"></h1>
+                    <h1 th:text="${match_info.home_team_score}"></h1>
+                </div>
+                <div class="col-md-4 col-sm-12 txt-center">
+                    <h1 th:text="${match_info.time}"></h1>
+                </div>
+                <div class="col-md-4 col-sm-12 txt-center">
+                    <h1 th:text="${match_info.away_team_name}"></h1>
+                    <h1 th:text="${match_info.away_team_score}"></h1>
+                </div>
+            </div>
+
+            <!--<div th:replace="fragments::live-score">-->
+
+            <!--</div>-->
+
+            <div class="row">
+                <a class="btn btn-primary fit-content" th:href="'/streams/' + ${match_id}" role="button" >View Streams List</a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7 col-sm-12">
+                    <div th:replace="fragments::line-up">
+
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    <div th:replace="fragments::league-table">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

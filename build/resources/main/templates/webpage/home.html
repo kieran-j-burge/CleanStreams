@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+    <th:block th:replace="fragments::head-config">
+
+    </th:block>
+</head>
+<body>
+
+<!--<nav class="navbar navbar-default">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="/">WebSiteName</a>-->
+        <!--</div>-->
+        <!--<ul class="nav navbar-nav">-->
+            <!--<li class="active"><a href="/">Home</a></li>-->
+            <!--<li><a href="/leagues">Leagues</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</nav>-->
+
+<nav th:replace="fragments::navbar">
+
+</nav>
+
+
+
+<div class="main">
+
+    <div th:replace="fragments::top-logo-lg">
+
+    </div>
+
+    <div id="UpcomingGames" class="container main-bg">
+        <div class="container-fluid txt-center">
+
+
+            <div th:if="${!live_game_list.empty}">
+                <h1 class="white-head">Live Games</h1>
+                <div th:replace="fragments::game-info-med-live">
+
+                </div>
+            </div>
+
+            <h1 class="white-head">Upcoming Games</h1>
+
+            <div class="row search-bar-row">
+                <h2 class="white-head float-left">Search For Game</h2>
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12 col-sm-12">
+                        <input id="searchGame" maxlength="30" class="search-query form-control" placeholder="Search" type="text" />
+                        <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-danger" type="button">-->
+                        <!--<span class=" glyphicon glyphicon-search"></span>-->
+                        <!--</button>-->
+                        <!--</span>-->
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultsBlock">
+
+                <div th:replace="fragments::game-info-med">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

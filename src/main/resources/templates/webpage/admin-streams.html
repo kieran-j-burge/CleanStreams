@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin Streams</title>
+    <th:block th:replace="fragments::head-config">
+
+    </th:block>
+</head>
+<body>
+
+<nav th:replace="fragments::admin-nav">
+</nav>
+
+<div class="main">
+    <div id="adminLeagueContainer">
+        <div class="container search-container">
+            <div class="row">
+                <div id="custom-search-input">
+                    <div class="input-group col-sm-12">
+                        <input id="searchAdminLeague" maxlength="30" type="text" class="  search-query form-control" placeholder="Search" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container ">
+            <div id="leagueReplaceContainer">
+
+            </div>
+            <h1 id="leagueId"></h1>
+            <input id="leagueUrl" type="text" class="  search-query form-control" placeholder="Search" />
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <a id="uploadLeagueStream" class="btn btn-primary fit-content" role="button" >Upload Stream</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminGameContainer">
+        <div class="container search-container">
+            <div class="row">
+                <div id="custom-search-input">
+                    <div class="input-group col-sm-12">
+                        <input id="searchAdminGame" maxlength="30" type="text" class="  search-query form-control" placeholder="Search" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container admin-url-detail">
+            <div id="gameReplaceContainer">
+
+            </div>
+            <h1 id="gameId"></h1>
+            <input id="gameUrl" type="text" class="  search-query form-control" placeholder="Search" />
+        </div>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <a id="uploadGameStream" class="btn btn-primary fit-content"  role="button" >Upload Stream</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+</script>
+
+
+</body>
+</html>

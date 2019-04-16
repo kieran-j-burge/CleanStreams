@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Leagues</title>
+    <th:block th:replace="fragments::head-config">
+
+    </th:block>
+</head>
+<body>
+
+<nav th:replace="fragments::navbar">
+
+</nav>
+
+<div class="main">
+
+    <div th:replace="fragments::top-logo-lg">
+
+    </div>
+
+    <div id="LeaguesContainer" class="container main-bg">
+        <div th:replace="fragments::major-league-list">
+
+        </div>
+
+        <div th:replace="fragments::other-league-list">
+
+        </div>
+
+        <div th:replace="fragments::cup-league-list">
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>League</title>
+    <th:block th:replace="fragments::head-config">
+
+    </th:block>
+</head>
+<body>
+
+<nav th:replace="fragments::navbar">
+
+</nav>
+
+
+
+<div class="main">
+
+    <div th:replace="fragments::top-logo-lg">
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="container main-bg">
+            <div class="row">
+                <div class="col-md-6" id="leagueGames">
+                    <div th:replace="fragments::league-specific-games">
+
+                    </div>
+                </div>
+                <div class="col-md-6 " id="leagueTable">
+                    <div th:replace="fragments::league-table">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
